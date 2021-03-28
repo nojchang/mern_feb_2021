@@ -32,6 +32,13 @@ import React, { useState } from 'react';
           <label htmlFor = "firstName">First Name</label>
           <input type="text" name="firstName" onChange= { (e) => setFirstName(e.target.value) } 
           />
+
+          {
+            firstName.length < 2 ?
+            <span>First Name must be at least 2 characters.</span>
+
+            : null
+          }
         </div>
         
 
@@ -39,24 +46,62 @@ import React, { useState } from 'react';
           <label htmlFor = "lastName">Last Name</label>
           <input type="text" name="lastName" onChange= { (e) => setLastName(e.target.value) } 
           />
+
+          {
+            lastName.length < 2 ?
+            <span>Last name must be at least 2 characters.</span>
+
+            : null
+          }
         </div>
 
         <div style = { inputDataDivStyle }> 
           <label htmlFor = "email">Email</label>
           <input type="text" name="email" onChange= { (e) => setEmail(e.target.value) } 
           />
+
+{
+            email.length < 5 ?
+            <span>Email must be at least 5 characters.</span>
+
+            : null
+          }
+
         </div>
 
         <div style = { inputDataDivStyle }> 
           <label htmlFor = "password">Password</label>
           <input type="password" name="password" onChange= { (e) => setPassword(e.target.value) } 
           />
+
+          {
+          password.length < 8 ?
+          <span>Password must be at least 8 characters.</span>
+
+          : null
+          }
+
         </div>
 
         <div style = { inputDataDivStyle }> 
           <label htmlFor = "confirmPassword">Confirm Password</label>
           <input type="password" name="confirmPassword" onChange= { (e) => setConfirmPassword(e.target.value)} 
           />
+
+        {
+          confirmPassword.length < 8 ?
+          <span>Confirm Password must be at least 8 characters.</span>
+
+          : null
+        }
+
+        {
+          password !== confirmPassword ?
+          <span>Password do not match!</span>
+
+          : null
+        }
+
         </div>
       </form>
 
